@@ -1,13 +1,7 @@
 import React from 'react';
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { LotteryHistory, LotteryRound } from './LotteryHistory';
-import { JSDOM } from 'jsdom';
-
-// Setup JSDOM
-const dom = new JSDOM('<!doctype html><html><body></body></html>');
-global.document = dom.window.document;
-global.window = dom.window as unknown as Window & typeof globalThis;
 
 const mockRounds: LotteryRound[] = [
   {
@@ -25,11 +19,6 @@ const mockRounds: LotteryRound[] = [
 ];
 
 describe('LotteryHistory Component', () => {
-  beforeEach(() => {
-    // Clean up the document body before each test
-    document.body.innerHTML = '';
-  });
-
   it('renders without crashing', () => {
     render(<LotteryHistory />);
     const historyElement = screen.getByTestId('lottery-history');
