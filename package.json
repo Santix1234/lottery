@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "deploy:sepolia": "cd blockchain && npx hardhat run scripts/deploy.ts --network sepolia && cd .."
   },
   "dependencies": {
@@ -23,6 +25,7 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^18.15.3",
     "@types/react": "^18.0.28",
     "eslint": "8.21.0",
